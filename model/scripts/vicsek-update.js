@@ -8,7 +8,7 @@ var boidList = [];
 var initialBoids =20;
 var order=[];
 var Sum=[];
-var O;
+var O = 0;
 
 var totle = 0;
 
@@ -23,6 +23,8 @@ var etaLabel;
 var vLabel;
 var rSlider;
 var rLabel;
+var oSlider;
+var olabel;
 
 //生成个体
 class Boid {
@@ -68,8 +70,10 @@ class Boid {
     O = Math.round(all*100)/100;
     //direction+=Math.atan2(sinSum, cosSum);
     //order = direction/initialBoids;
+    
     return Math.atan2(sinSum, cosSum);
   }
+
 
   wrap() {
     //wrap x
@@ -112,7 +116,7 @@ class Boid {
     //update position
     this.position.add(velocity);
   }
-
+  
 };
 
 //系统图形显示模块
@@ -132,7 +136,17 @@ function createGUIElements() {
   rSlider.position(controlStartX, controlStartY + 3*controlElementOffset);
   rLabel = createDiv('radius of observation');
   rLabel.position(rSlider.x+rSlider.width + labelOffset, rSlider.y);
+
 }
+function createDIV(text) 
+{ 
+   var div = document.createElement("div"); 
+    div.innerHTML = text; 
+   document.body.appendChild(div);
+   //document.body.removeChild(div); 
+} 
+
+
 function centerCanvas() {
   console.log(2);
     var x = (windowWidth - canvasWidth) / 2;
@@ -154,21 +168,21 @@ function setup() {
   // 生成个体
   randomSeed(5);
   for(var i=0;i<initialBoids;i++) {
-    boidList.push(new Boid(random(canvasWidth), random(canvasHeight), random(0,4*PI)));
+    boidList.push(new Boid(random(canvasWidth), random(canvasHeight), random(-2*PI,2*PI)));
   }
   frameRate(60);
 }
 
 function draw() {
-  console.log(4);
-  background(bgColor);
+  createDIV(O);
+   
+     background(bgColor);
   for(var i=0;i<boidList.length;i++) {
     if (i<boidList.length-5) {
       boidList[i].updates();
     } else {
       boidList[i].update();
     }
-    
     boidList[i].show();
     if(i==0){
       noFill()
@@ -176,4 +190,7 @@ function draw() {
     }
     boidList[i].wrap();
   }
-}
+  
+  }
+  
+

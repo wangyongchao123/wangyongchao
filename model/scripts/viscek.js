@@ -1,3 +1,4 @@
+
 //Canvas variables
 var canvasWidth = 200;
 var canvasHeight = canvasWidth;
@@ -123,6 +124,7 @@ function setup() {
 
 function draw() {
   background(bgColor);
+  
   for(var i=0;i<boidList.length;i++) {
     boidList[i].update();
     boidList[i].show();

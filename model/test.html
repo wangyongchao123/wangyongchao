@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>test</title>
+	
+</head>
+<body>
+  <h2>content</h2>
+  <script type="text/javascript">
+  	var str = window.location.href;
+  	console.log(str);
+  	var arrStr = window.location.href.split("=");
+  	var num = window.location.href.split("=")[1];
+  	var speed = window.location.href.split("=")[2];
+  	var radio = window.location.href.split("=")[3];
+  	var adder = window.location.href.split("=")[4];
+  	document.getElementById("num").value = num;
+  </script>
+  <input type="text" name="text" id="num" value="111">
+</body>
+</html>
