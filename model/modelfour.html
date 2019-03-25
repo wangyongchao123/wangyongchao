@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html>
 <head design-width="750">
 <meta charset="utf-8">
@@ -23,43 +23,38 @@
 	</header>
 	<main>
 		<div class="inform">
-			<h3>账号管理</h3>
+			<h3>初始数据输入</h3>
 			
 			<div class="inform-text show">
-				<form action="" method="post">
+				<form method="get">
 				<p>
 					<span>
-						UID ：
+						群体数量
 					</span>
-					<input type="text" />
+					<input type="text" id="num"  placeholder="输入数量在1-1000之间" />
 				</p>
 				<p>
 					<span>
-						用户名
+						群体速度
 					</span>
-					<input type="text" />
+					<input type="text" id="speed" placeholder="输入值在0-6之间" />
 				</p>
 				<p>
 					<span>
-						电话号
+						作用半径
 					</span>
-					<input type="text" />
+					<input type="text" id="radio" placeholder="输入值在0-5之间" />
 				</p>
 				<p>
 					<span>
-						微信号
+						运动时长
 					</span>
-					<input type="text" />
+					<input type="text" id="adder" placeholder="输入值必须大于1000" />
 				</p>
-				<p>
-					<span>
-						商户级别
-					</span>
-					<input type="text" />
-				</p>
+				
 				<h4>
-					<input type="submit" name="" id="" value="确定修改" />
-					
+					<input type="button" name="" id="submit" value="提交数据" onclick="data()"/>
+					<a href="index.html">返回首页</a>
 				</h4>
 				</form>
 			</div>
@@ -71,6 +66,14 @@
 
 
 <script type="text/javascript">
+	function data(){
+		var num = document.getElementById('num').value;
+		var speed = document.getElementById('speed').value;
+		var radio = document.getElementById('radio').value;
+		var adder = document.getElementById('adder').value;
+		var url = "disturb.html?num="+num+"="+speed+"="+radio+"="+adder;
+		window.open(url);
+	}
 	
 </script>
 

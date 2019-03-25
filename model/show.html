@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>序参量</title>
+	<script src="js/echarts.common.min.js"></script>
+</head>
+<body>
+ <div id="main" style="width: 100%;height:600px;"></div>
+ <script type="text/javascript">
+ 	var List = window.location.href.split("=")[1];
+ 	console.log(List);
+ 	var arr = List.split(",");
+ 	var ind = [];
+ 	for (var i = 0; i < arr.length; i++) {
+ 		ind.push(i);
+ 	}
+ 	//console.log(ind);
+ 	var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title: {
+                text: '序参量'
+            },
+            xAxis: {
+               type: 'category',
+               data: ind
+            },
+            yAxis: {
+               type: 'value'
+            },
+            series: [{	
+                data: arr,
+                type: 'line'
+            
+            }]
+    
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+ </script>
+</body>
+</html>

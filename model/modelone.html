@@ -26,35 +26,35 @@
 			<h3>初始数据输入</h3>
 			
 			<div class="inform-text show">
-				<form action="" method="post">
+				<form method="get">
 				<p>
 					<span>
 						群体数量
 					</span>
-					<input type="text" />
+					<input type="text" id="num"  placeholder="输入数量在1-1000之间" />
 				</p>
 				<p>
 					<span>
 						群体速度
 					</span>
-					<input type="text" />
+					<input type="text" id="speed" placeholder="输入值在0-6之间" />
 				</p>
 				<p>
 					<span>
 						作用半径
 					</span>
-					<input type="text" />
+					<input type="text" id="radio" placeholder="输入值在0-5之间" />
 				</p>
 				<p>
 					<span>
-						扰动位置
+						运动时长
 					</span>
-					<input type="text" />
+					<input type="text" id="adder" placeholder="输入值必须大于1000" />
 				</p>
 				
 				<h4>
-					<input type="submit" name="" id="" value="提交数据" />
-					
+					<input type="button" name="" id="submit" value="提交数据" onclick="data()"/>
+					<a href="index.html">返回首页</a>
 				</h4>
 				</form>
 			</div>
@@ -66,6 +66,14 @@
 
 
 <script type="text/javascript">
+	function data(){
+		var num = document.getElementById('num').value;
+		var speed = document.getElementById('speed').value;
+		var radio = document.getElementById('radio').value;
+		var adder = document.getElementById('adder').value;
+		var url = "normal.html?num="+num+"="+speed+"="+radio+"="+adder;
+		window.open(url);
+	}
 	
 </script>
 
