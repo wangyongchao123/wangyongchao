@@ -22,6 +22,7 @@ var Sum=[];
 var O = 0;
 var t=0;
 var time=timeF;
+var end;
 //var speed = 3;
 //var radio=5;
 var totle = 0;
@@ -140,20 +141,18 @@ class Boid {
 };
 //系统图形显示模块
 function createGUIElements() {
-  var rad = Number(radio)*10;
-  var spe = Number(speed);
-  console.log(rad);
+  
   etaSlider = createSlider(0, 3, 0, 0.05);
   etaSlider.position(controlStartX, controlStartY + 1*controlElementOffset);
   etaLabel = createDiv('噪声');
   etaLabel.position(etaSlider.x + etaSlider.width + labelOffset, etaSlider.y);
 
-  vSlider = createSlider(0, 6, spe, 0.05);
+  vSlider = createSlider(0, 6, 5, 0.05);
   vSlider.position(controlStartX, controlStartY + 2*controlElementOffset);
   vLabel = createDiv('速度');
   vLabel.position(vSlider.x + vSlider.width + labelOffset, vSlider.y);
 
-  rSlider = createSlider(0, 50, rad,0.05);
+  rSlider = createSlider(0, 50, 50,0.05);
   rSlider.position(controlStartX, controlStartY + 3*controlElementOffset);
   rLabel = createDiv('交互范围');
   rLabel.position(rSlider.x+rSlider.width + labelOffset, rSlider.y);
@@ -188,8 +187,8 @@ function setup() {
 }
 
 function draw() {
-  
-  
+  var end = Number(speed);
+  var rad = Number(radio);
   //console.log(List);
   t++;
   console.log("t ="+t);
@@ -201,12 +200,12 @@ function draw() {
     }
   background(bgColor);
   //console.log(222);
-  if (t > 500) {
+  if (t > radio) {
     for(var i=0;i<boidList.length;i++) {
-      if (i<boidList.length-5) {
-        boidList[i].updates();
-      } else {
+      if (i<boidList.length-end) {
         boidList[i].update();
+      } else {
+        boidList[i].updates();
       }
       boidList[i].show();
       if(i==0){

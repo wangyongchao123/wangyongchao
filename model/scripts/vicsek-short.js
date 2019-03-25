@@ -6,6 +6,9 @@ var num = window.location.href.split("=")[1];
 var speed = window.location.href.split("=")[2];
 var radio = window.location.href.split("=")[3];
 var timeF = window.location.href.split("=")[4];
+
+var disturb = window.location.href.split("=")[5];
+
 //console.log(speed);
 
 
@@ -128,7 +131,7 @@ class Boid {
     //get mean theta
     var meanTheta = this.getMeanTheta();
     //console.log(meanTheta);
-    this.theta = meanTheta + etaSlider.value()*random(-1,1)+0.1;
+    this.theta = meanTheta + etaSlider.value()*random(-1,1)+0.005;
     //console.log(this.theta);
     //calculate velocity
     var velocity = createVector(vSlider.value()*cos(this.theta), vSlider.value()*sin(this.theta))
@@ -189,7 +192,7 @@ function setup() {
 
 function draw() {
   
-  
+  var end = Number(disturb);
   //console.log(List);
   t++;
   console.log("t ="+t);
@@ -203,10 +206,10 @@ function draw() {
   //console.log(222);
   if (t > 500&&t < 800) {
     for(var i=0;i<boidList.length;i++) {
-      if (i<boidList.length-5) {
-        boidList[i].updates();
-      } else {
+      if (i<boidList.length-end) {
         boidList[i].update();
+      } else {
+        boidList[i].updates();
       }
       boidList[i].show();
       if(i==0){

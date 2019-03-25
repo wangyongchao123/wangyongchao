@@ -35,6 +35,12 @@
 				</p>
 				<p>
 					<span>
+						扰动个体
+					</span>
+					<input type="text" id="disturb" placeholder="输入值小于群体数量" />
+				</p>
+				<p>
+					<span>
 						群体速度
 					</span>
 					<input type="text" id="speed" placeholder="输入值在0-6之间" />
@@ -45,6 +51,7 @@
 					</span>
 					<input type="text" id="radio" placeholder="输入值在0-5之间" />
 				</p>
+				
 				<p>
 					<span>
 						运动时长
@@ -69,9 +76,10 @@
 	function data(){
 		var num = document.getElementById('num').value;
 		var speed = document.getElementById('speed').value;
+		var disturb = document.getElementById('disturb').value;
 		var radio = document.getElementById('radio').value;
 		var adder = document.getElementById('adder').value;
-		var url = "shortdisturb.html?num="+num+"="+speed+"="+radio+"="+adder;
+		var url = "shortdisturb.html?num="+num+"="+speed+"="+radio+"="+adder+"="+disturb;
 		window.open(url);
 	}
 	
