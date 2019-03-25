@@ -201,18 +201,31 @@ function draw() {
     }
   background(bgColor);
   //console.log(222);
-  for(var i=0;i<boidList.length;i++) {
-    if (i<boidList.length-5) {
-      boidList[i].updates();
-    } else {
-      boidList[i].update();
-    }
-    boidList[i].show();
-    if(i==0){
-      noFill()
-      ellipse(boidList[i].position.x, boidList[i].position.y, 2*rSlider.value(), 2*rSlider.value())
-    }
-    boidList[i].wrap();
+  if (t > 500) {
+    for(var i=0;i<boidList.length;i++) {
+      if (i<boidList.length-5) {
+        boidList[i].updates();
+      } else {
+        boidList[i].update();
+      }
+      boidList[i].show();
+      if(i==0){
+        noFill()
+        ellipse(boidList[i].position.x, boidList[i].position.y, 2*rSlider.value(), 2*rSlider.value())
+      }
+        boidList[i].wrap();
+      }
+  } else {
+      for(var i=0;i<boidList.length;i++) {
+        boidList[i].update();
+        boidList[i].show();
+      if(i==0){
+        noFill()
+        ellipse(boidList[i].position.x, boidList[i].position.y, 2*rSlider.value(), 2*rSlider.value())
+      }
+      boidList[i].wrap();
+      }
   }
+  
 
 }
